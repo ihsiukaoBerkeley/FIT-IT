@@ -21,12 +21,14 @@
 - Confusion_Matrix.png
 - Precision_Recall_Curve.png
 
-###File Structures:
+### File Structures:
+
 |
 ├── test.py					# Main python program
 ├── requirements.txt		# Contains required packages name
 ├── src						# Contains working notebooks
-│   ├── EDA_preprocessing	# Conducts EDA on train data, creates validation data, creates scaler and 								encoder
+│   ├── EDA_preprocessing	# Conducts EDA on train data, splits validation data, creates scaler │	│							encoder
+│   ├── Logistic_Regression # Creates Logistic Reg
 ├── test                    # Test files (alternatively `spec` or `tests`)
 │   ├── benchmarks          # Load and stress tests
 │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
