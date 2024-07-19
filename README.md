@@ -23,14 +23,49 @@
 
 ### File Structures:
 
-|
-├── test.py					# Main python program
-├── requirements.txt		# Contains required packages name
-├── src						# Contains working notebooks
-│   ├── EDA_preprocessing	# Conducts EDA on train data, splits validation data, creates scaler │	│							encoder
-│   ├── Logistic_Regression # Creates Logistic Reg
-├── test                    # Test files (alternatively `spec` or `tests`)
-│   ├── benchmarks          # Load and stress tests
-│   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-│   └── unit                # Unit tests
-└── ...
+```bash
+├── README.md
+├── assignment.docx
+├── data
+│   ├── test.csv
+│   ├── train.csv
+│   ├── train_norm_balanced.csv
+│   ├── train_norm_set.csv
+│   ├── train_set.csv
+│   ├── train_set_balanced.csv
+│   ├── val_norm_set.csv
+│   └── val_set.csv
+├── main.py
+├── models
+│   ├── Gender_encoder_balanced.joblib
+│   ├── Gender_encoder_unbalanced.joblib
+│   ├── Geography_encoder_balanced.joblib
+│   ├── Geography_encoder_unbalanced.joblib
+│   ├── HasCrCard_encoder_balanced.joblib
+│   ├── HasCrCard_encoder_unbalanced.joblib
+│   ├── IsActiveMember_encoder_balanced.joblib
+│   ├── IsActiveMember_encoder_unbalanced.joblib
+│   ├── MNN_best_unbalanced.keras
+│   ├── logistic_balanced.joblib
+│   ├── logistic_unbalanced.joblib
+│   ├── mnn_discret_balanced.keras
+│   ├── mnn_discret_unbalanced.keras
+│   ├── mnn_norm_balanced.keras
+│   ├── mnn_norm_unbalanced.keras
+│   ├── rf_best_balanced.joblib
+│   ├── rf_best_unbalanced.joblib
+│   ├── scaler_balanced.joblib
+│   ├── scaler_unbalanced.joblib
+│   ├── xgb_best_balanced.joblib
+│   └── xgb_best_unbalanced.joblib
+├── requirements.txt
+└── src
+    ├── EDA_preprocessing.ipynb
+    ├── Logistic_Regression.ipynb
+    ├── MNN_discret.ipynb
+    ├── MNN_norm.ipynb
+    ├── MNN_norm_param.ipynb
+    ├── RandomForest.ipynb
+    ├── SVM.ipynb
+    └── XGBoost.ipynb
+```
