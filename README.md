@@ -24,18 +24,25 @@
 ### File Structures:
 
 ```bash
-├── README.md
-├── assignment.docx
+├── main.py		#main program to run
+├── requirements.txt	#list of packages required to run main.py
+├── src		#contains all working notebooks
+│   ├── EDA_preprocessing	#conducts EDA on train, splits data, preprocesses data, balances dataset
+│   ├── Logistic_Regression	#creates logistic regression models on unbalanced & balanced dataset
+│   ├── MNN_discret	#creates multi-layers neural network by discretizing & encoding features into bins
+│   ├── MNN_norm	#creates multi-layers neural network with normalized numeric features
+│   ├── MNN_norm_param		#param tuning for MNN using cross-validation
+│   ├── RandomForest	#creates random forest models on unbalanced & balanced data, conducts param tuning
+│   └── XGBoost	#creates XGBoost models on unbalanced & balanced data, conducts param tuning
 ├── data
-│   ├── test.csv
-│   ├── train.csv
-│   ├── train_norm_balanced.csv
-│   ├── train_norm_set.csv
-│   ├── train_set.csv
-│   ├── train_set_balanced.csv
-│   ├── val_norm_set.csv
-│   └── val_set.csv
-├── main.py
+│   ├── test.csv	#orginal data
+│   ├── train.csv	#orginal data
+│   ├── train_norm_balanced.csv	#normalized & balanced train data for training
+│   ├── train_norm_set.csv #normalzed & unbalanced train data for training
+│   ├── train_set.csv		#un-normalzied & unbalanced train data for training
+│   ├── train_set_balanced.csv		#un-normalized & balanced train data for training
+│   ├── val_norm_set.csv	#normalized validation data
+│   └── val_set.csv	#un-normalized validation data
 ├── models
 │   ├── Gender_encoder_balanced.joblib
 │   ├── Gender_encoder_unbalanced.joblib
@@ -58,14 +65,7 @@
 │   ├── scaler_unbalanced.joblib
 │   ├── xgb_best_balanced.joblib
 │   └── xgb_best_unbalanced.joblib
-├── requirements.txt
-└── src
-    ├── EDA_preprocessing.ipynb
-    ├── Logistic_Regression.ipynb
-    ├── MNN_discret.ipynb
-    ├── MNN_norm.ipynb
-    ├── MNN_norm_param.ipynb
-    ├── RandomForest.ipynb
-    ├── SVM.ipynb
-    └── XGBoost.ipynb
+├── README.md
+└── assignment.docx
+	
 ```
