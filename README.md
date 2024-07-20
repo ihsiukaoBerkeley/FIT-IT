@@ -2,19 +2,19 @@
 
 ### Intructions:
 1. ensure the following files are in their respective file paths
-- test.py
+- main.py
 - data/val_set.csv
 - data/test.csv
-- models/scaler_unbalanced.joblib
-- models/Gender_encoder_unbalanced.joblib
-- models/Geography_encoder_unbalanced.joblib
-- models/HasCrCard_encoder_unbalanced.joblib
-- models/IsActiveMember_encoder_unbalanced.joblib
-- models/mnn_norm_...tbd
+- models/scaler_balanced.joblib
+- models/Gender_encoder_balanced.joblib
+- models/Geography_encoder_balanced.joblib
+- models/HasCrCard_encoder_balanced.joblib
+- models/IsActiveMember_encoder_balanced.joblib
+- models/models/rf_best_balanced.joblib
 2. create a python 3.11 virtual environment with command: python3.11 -m venv env_name
 3. activate the virtual environment with command: source env_name/bin/activate
 4. install required packages with provided requirements.txt with command: pip3 install -r requirements.txt
-5. run the program with command: python3 test.py
+5. run the program with command: python3 main.py
 6. check whether the following output files are created:
 - output.csv
 - ROC_Curve.png

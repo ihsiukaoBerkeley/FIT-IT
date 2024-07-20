@@ -56,14 +56,14 @@ def pre_process(df):
     df_features["Gender"] = df_features["Gender"].apply(str.lower)
     
     #load scaler
-    scaler = joblib.load("models/scaler_unbalanced.joblib")
+    scaler = joblib.load("models/scaler_balanced.joblib")
         
     #transform validation data
     df_features[quantitative_columns] = scaler.transform(df_features[quantitative_columns])
     
     for i in categorical_columns:
         #load encoder
-        encoder_name = f"models/{i}_encoder_unbalanced.joblib"
+        encoder_name = f"models/{i}_encoder_balanced.joblib"
         label_encoder = joblib.load(encoder_name)
     
         #transform validation data
@@ -116,6 +116,8 @@ def plot_roc(actual_label, predictions):
 
     #make plot
     plt.plot(fpr, tpr, label = "data 1, auc = " + str(auc))
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
     plt.legend(loc = 4)
     plt.title("ROC Curve of Validation Data")
     
@@ -177,8 +179,8 @@ if __name__ == "__main__":
     val_features = pre_process(val_df)
 
     #make predictions #rf_best_balanced.joblib
-    #test_pred = make_predictions_MNN(test_features, "models/mnn_norm_unbalanced.keras")
-    #val_pred = make_predictions_MNN(val_features, "models/mnn_norm_unbalanced.keras")
+    #test_pred = make_predictions_MNN(test_features, "models/MNN_best_balanced.keras")
+    #val_pred = make_predictions_MNN(val_features, "models/MNN_best_balanced.keras")
     test_pred_label, test_pred = make_predictions_RF(test_features, "models/rf_best_balanced.joblib")
     val_pred_label, val_pred = make_predictions_RF(val_features, "models/rf_best_balanced.joblib")
 
@@ -226,4 +228,6 @@ if __name__ == "__main__":
         f.write("\n")
         f.write("test.csv Predictions\n")
         output_df.to_csv(f, index = False)
+
+    print("Program has finished running")
 
