@@ -22,18 +22,30 @@
 - Precision_Recall_Curve.png
 
 ### Explanations:
-##### EDA:
+#### EDA:
 train.csv contains 165034 samples and 14 columns. It does not contain null values. Three columns with string values (Surname, Geography, and Gender) contain spaces. The label "Exited" has an imbalance distribution with 130113 (79%) samples with 0 and 34921 (21%) with 1. Numerical features are also not normally distributed.
-##### Preprocessing:
+#### Preprocessing:
 Columns with string values were lowercased and stripped of any white spaces. Since columns like id, CustomerId, and Surname had little use for training, they were dropped. train.csv was then shuffled and splited into train and validation sets with 7-3 ratio. Because of their non-normal distribution, numerical features were normalized instead of standarized. Categorical features were encoded based on their values. Normalization scaler and categorical feature encoders were first fitted on train set then used to transform both train and validation sets. To address the imbalance label issue, a new train set was created using undersampler to balance the label.
-##### Model Training:
+#### Model Training:
 Four types of models, logistic regression, random forest, XGBoost, and multi-layer neural network were created. Each model was experimented on both balanced and unbalanced train set and evaluted on the validation set. Multi-layer neural network was also experimented on the un-normalzed and un-encoded train set. It was done by discretizing numerical (continuous) features into bins and one-hot encoding them. Parameter tuning was performed on random forest, XGBoost and multi-layer neural network using grid search and cross-validation. The best performing set of parameters were used to create the "best" models for evaluations
-##### Model Evaluation:
+#### Model Evaluation:
 Due to the imbalance issue, **F1 score** was selected for model evaluation and parameter tuning. The reason was that accuracy would be dominated by the accuracy of the majority label. Using accuracy might also cause models to only capture the distribution of labels. F1 score provided a good balance between precision and recall. Since there was no clear business case for this assignment, a clear choice between precision or recall did not exist. Hence, F1 score was selected. Other metrics like AUC under ROC were also used for evaluation.
-##### Evaluation Results:
+#### Evaluation Results:
+| Model  | Dataset | Precision | Recall | F1 | AUC |
+| -------| ------- | --------- | ------ | ---| --- |
+| Logistic Regression | Unbalanced | 0.68 | 0.34 | 0.46 | 0.81 |
+| Logistic Regression | Balanced | 0.44 | 0.74 | 0.55 | 0.81 |
+| Random Forest | Unbalanced | 0.74 | 0.56 | 0.64 | 0.89 |
+| Random Forest | Balanced | 0.53 | 0.80 | 0.64 | 0.89 |
+| XGBoost | Unbalanced | 0.75 | 0.56 | 0.64 | 0.89 |
+| XGBoost | Balanced | 0.53 | 0.80 | 0.64 | 0.89 |
+| Multi NN | Unbalanced&Normalized | 0.80 | 0.46 | 0.58 | 0.88 |
+| Multi NN | Balanced&Normalized | 0.84 | 0.38 | 0.53 | 0.89 |
+| Multi NN | Unbalanced&Un-normalized | 0.73 | 0.55 | 0.63 | 0.88 |
+| Multi NN | Balanced&Un-normalized | 0.45 | 0.87 | 0.59 | 0.88 |
 
 
-### File Structures:
+### Directory:
 
 ```bash
 ├── main.py		#main program to run
