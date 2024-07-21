@@ -179,18 +179,18 @@ if __name__ == "__main__":
     val_features = pre_process(val_df)
 
     #make predictions #rf_best_balanced.joblib
-    #test_pred = make_predictions_MNN(test_features, "models/MNN_best_balanced.keras")
-    #val_pred = make_predictions_MNN(val_features, "models/MNN_best_balanced.keras")
-    test_pred_label, test_pred = make_predictions_RF(test_features, "models/rf_best_balanced.joblib")
-    val_pred_label, val_pred = make_predictions_RF(val_features, "models/rf_best_balanced.joblib")
+    test_pred = make_predictions_MNN(test_features, "models/MNN_best_balanced.keras")
+    val_pred = make_predictions_MNN(val_features, "models/MNN_best_balanced.keras")
+    #test_pred_label, test_pred = make_predictions_RF(test_features, "models/rf_best_balanced.joblib")
+    #val_pred_label, val_pred = make_predictions_RF(val_features, "models/rf_best_balanced.joblib")
 
     
     #plot auc
     val_auc = plot_roc(val_df["Exited"],  val_pred)
     
     #evalute validation results
-    #report, val_pred_label = evaluate_predictions_MNN(val_df["Exited"], val_pred)
-    report = evaluate_predictions_sklearn(val_df["Exited"], val_pred_label)
+    report, val_pred_label = evaluate_predictions_MNN(val_df["Exited"], val_pred)
+    #report = evaluate_predictions_sklearn(val_df["Exited"], val_pred_label)
     
     #plot pr curve
     plot_pr_curve(val_df["Exited"],  val_pred)

@@ -1,4 +1,16 @@
-## Exited Binary Classification (FIT IT)
+## Task 1: General Questions
+1. What is your preferred language when building predictive models and why?
+My preferred language when building predictive models is Python. The reason is that Python has multiple packages like scikit-learn, tensorflow, and PyTorch that are considered the most best for building models. There also packages like numpy, pandas, matplotlib, seaborn, and PySpark that are useful in data manipulation and visualiztion.
+
+2. Provide an example of when you used SQL to extract data.
+During a project to build a Q&A engine with text-to-sql RAG, I created a table for each of the source csv file using SQL in AWS Athena. I also had to write sample queries for AWS Athena containing aggregate function, join, and subqueries to feed to the LLM as few-shot prompt because the chosen LLM was unable to generate complex SQL queries.
+
+3. Give an example of a situation where you disagreed upon an idea or solution design with a co-worker.  How did you handle the case?
+
+4. What are your greatest strengths and weaknesses and how will these affect your performance here?
+
+
+## Task 2: Python model development
 
 ### Intructions:
 1. ensure the following files are in their respective file paths
@@ -10,7 +22,7 @@
 - models/Geography_encoder_balanced.joblib
 - models/HasCrCard_encoder_balanced.joblib
 - models/IsActiveMember_encoder_balanced.joblib
-- models/models/rf_best_balanced.joblib
+- models/MNN_best_balanced.keras
 2. create a python 3.11 virtual environment with command: python3.11 -m venv env_name
 3. activate the virtual environment with command: source env_name/bin/activate
 4. install required packages with provided requirements.txt with command: pip3 install -r requirements.txt
@@ -40,7 +52,7 @@ Due to the imbalance issue, **F1 score** was selected for model evaluation and p
 | XGBoost | Unbalanced&Normalized | 0.75 | 0.56 | 0.64 | 0.89 |
 | XGBoost | Balanced&Normalized | 0.53 | 0.80 | 0.64 | 0.89 |
 | Multi NN | Unbalanced&Normalized | 0.80 | 0.46 | 0.58 | 0.88 |
-| Multi NN | Balanced&Normalized | 0.84 | 0.38 | 0.53 | 0.89 |
+| Multi NN | Balanced&Normalized | 0.58 | 0.75 | 0.65 | 0.89 |
 | Multi NN | Unbalanced&Un-normalized | 0.73 | 0.55 | 0.63 | 0.88 |
 | Multi NN | Balanced&Un-normalized | 0.45 | 0.87 | 0.59 | 0.88 |
 
